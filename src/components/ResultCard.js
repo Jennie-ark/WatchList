@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import Moment from "react-moment";
+import 'moment-timezone';
 import { GlobalContext } from "../context/GlobalState";
 
 export const ResultCard = ({ movie }) => {
