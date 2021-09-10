@@ -1,6 +1,4 @@
 import React, { useContext } from "react";
-import Moment from "react-moment";
-import 'moment-timezone';
 import { GlobalContext } from "../context/GlobalState";
 
 export const ResultCard = ({ movie }) => {
@@ -12,11 +10,9 @@ export const ResultCard = ({ movie }) => {
 
   const watchlistDisabled = storedMovie
     ? true
-    : storedMovieWatched
-    ? true
-    : false;
+    : !!storedMovieWatched;
 
-  const watchedDisabled = storedMovieWatched ? true : false;
+  const watchedDisabled = !!storedMovieWatched;
 
   return (
     <div className="result-card">
@@ -34,9 +30,6 @@ export const ResultCard = ({ movie }) => {
       <div className="info">
         <div className="header">
           <h3 className="title">{movie.title}</h3>
-          <h4 className="release-date">
-            <Moment format="YYYY">{movie.release_date}</Moment>
-          </h4>
         </div>
 
         <div className="controls">
